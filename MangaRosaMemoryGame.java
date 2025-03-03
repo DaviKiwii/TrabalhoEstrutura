@@ -3,14 +3,14 @@ package games.mangarosa.com.br;
 import java.util.*;
 
 public class MangaRosaMemoryGame{
-
-
+static int opcao;
+static Scanner scanner = new Scanner(System.in);
+static int escolha;
+static int tamanho = 0;
+static String jogador1 = "PARTICIPANTE1";
+static String jogador2 = "PARTICIPANTE2";
 
 public static void main(String[] args){
-    Scanner scanner = new Scanner(System.in);
-
-    int opcao;
-
 
     System.out.println("Bem-vindo ao Jogo da Memoria Manga Rosa!!");
     System.out.println("Escolha uma opção para continuar:");
@@ -56,16 +56,9 @@ public static void main(String[] args){
     while(opcao != 4);
     System.out.println("Obrigado por jogar, volte sempre!!");
 
-
-
-
     }
 
     public static void escolherTamanhoTabuleiro(){
-    Scanner scanner = new Scanner(System.in);
-
-    int escolha;
-    int tamanho = 0;
 
         System.out.println("Para começar, escolha o tamanho do tabuleiro (digite 1, 2, 3 ou 4. Para voltar ao inicio, digite 0: )");
 
@@ -96,10 +89,6 @@ public static void main(String[] args){
 
 
     public static void iniciarJogo(){
-    Scanner scanner = new Scanner(System.in);
-
-    String jogador1 = "PARTICIPANTE1";
-    String jogador2 = "PARTICIPANTE2";
 
         System.out.println("Digite o nome do jogador 1: ");
         jogador1 = scanner.nextLine();
