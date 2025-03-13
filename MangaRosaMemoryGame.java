@@ -141,20 +141,20 @@ public class MangaRosaMemoryGame {
     public static void exibirTabuleiro(int tamanho, String jogador1, String jogador2, String corJogador1, String corJogador2, String[][] tabuleiro, boolean[][] cartaRevelacao, int pontosJogador1, int pontosJogador2) {
         exibirPontuacoes(jogador1, jogador2, corJogador1, corJogador2, pontosJogador1, pontosJogador2);
         System.out.println("Tabuleiro:");
-        System.out.print("    "); // Espaço inicial para alinhar com os números das linhas
+        System.out.print("    "); 
         for (int j = 1; j <= tamanho; j++) {
             if (j < 10) {
-                System.out.print("  " + j + "  "); // 5 caracteres para alinhar com "[ ? ] "
+                System.out.print("  " + j + "  "); 
             } else {
-                System.out.print(" " + j + "  "); // 5 caracteres para números de dois dígitos
+                System.out.print(" " + j + "  "); 
             }
         }
         System.out.println();
         for (int i = 0; i < tamanho; i++) {
             if (i + 1 < 10) {
-                System.out.print(" " + (i + 1) + "  "); // 4 caracteres para alinhar com o início das cartas
+                System.out.print(" " + (i + 1) + "  ");
             } else {
-                System.out.print((i + 1) + "  "); // 4 caracteres para números de dois dígitos
+                System.out.print((i + 1) + "  "); 
             }
             for (int j = 0; j < tamanho; j++) {
                 if (cartaRevelacao[i][j]) {
