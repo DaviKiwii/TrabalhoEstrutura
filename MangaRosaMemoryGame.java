@@ -14,10 +14,9 @@ public class MangaRosaMemoryGame {
             opcao = scanner.nextInt();
             scanner.nextLine();
 
-            // Dados iniciais para pontuações e jogadores no caso 2
             String jogador1 = "PARTICIPANTE1";
             String jogador2 = "PARTICIPANTE2";
-            String corJogador1 = "R"; // Valores padrão para exibir pontuações antes de iniciar
+            String corJogador1 = "R";
             String corJogador2 = "B";
             int pontosJogador1 = 0;
             int pontosJogador2 = 0;
@@ -53,9 +52,8 @@ public class MangaRosaMemoryGame {
                 default: System.out.println("Opção inválida. Escolha novamente.");
             }
         } while (tamanho == 0);
-        // Usa guardaTamanho para passar o valor de tamanho
         int[] guardaTamanho = {tamanho};
-        scanner.nextLine(); // Limpa o buffer
+        scanner.nextLine();
         iniciarJogo(scanner, guardaTamanho);
     }
 
@@ -73,7 +71,7 @@ public class MangaRosaMemoryGame {
         jogador1 = scanner.nextLine();
         System.out.println("Digite o nome do jogador 2: ");
         jogador2 = scanner.nextLine();
-        
+
         Random rand = new Random();
         String corJogador1 = rand.nextBoolean() ? "R" : "B";
         String corJogador2 = corJogador1.equals("R") ? "B" : "R";
@@ -143,13 +141,21 @@ public class MangaRosaMemoryGame {
     public static void exibirTabuleiro(int tamanho, String jogador1, String jogador2, String corJogador1, String corJogador2, String[][] tabuleiro, boolean[][] cartaRevelacao, int pontosJogador1, int pontosJogador2) {
         exibirPontuacoes(jogador1, jogador2, corJogador1, corJogador2, pontosJogador1, pontosJogador2);
         System.out.println("Tabuleiro:");
-        System.out.print("   ");
+        System.out.print("    "); // Espaço inicial para alinhar com os números das linhas
         for (int j = 1; j <= tamanho; j++) {
-            System.out.print(" " + j + (j < 10 ? "  " : " "));
+            if (j < 10) {
+                System.out.print("  " + j + "  "); // 5 caracteres para alinhar com "[ ? ] "
+            } else {
+                System.out.print(" " + j + "  "); // 5 caracteres para números de dois dígitos
+            }
         }
         System.out.println();
         for (int i = 0; i < tamanho; i++) {
-            System.out.print((i + 1) + (i + 1 < 10 ? " " : ""));
+            if (i + 1 < 10) {
+                System.out.print(" " + (i + 1) + "  "); // 4 caracteres para alinhar com o início das cartas
+            } else {
+                System.out.print((i + 1) + "  "); // 4 caracteres para números de dois dígitos
+            }
             for (int j = 0; j < tamanho; j++) {
                 if (cartaRevelacao[i][j]) {
                     String combinacao = tabuleiro[i][j];
@@ -275,7 +281,7 @@ public class MangaRosaMemoryGame {
         String cubo1 = corJogador1.equals("R") ? "\u001B[31m■\u001B[0m" : "\u001B[34m■\u001B[0m";
         String cubo2 = corJogador2.equals("R") ? "\u001B[31m■\u001B[0m" : "\u001B[34m■\u001B[0m";
         System.out.println(jogador1 + " " + cubo1 + ": " + pontosJogador1 + " pontos | " +
-                         jogador2 + " " + cubo2 + ": " + pontosJogador2 + " pontos");
+                jogador2 + " " + cubo2 + ": " + pontosJogador2 + " pontos");
     }
 
     public static void exibirResultadoFinal(int tamanho, String jogador1, String jogador2, String corJogador1, String corJogador2, String[][] tabuleiro, boolean[][] cartaRevelacao, int pontosJogador1, int pontosJogador2) {
