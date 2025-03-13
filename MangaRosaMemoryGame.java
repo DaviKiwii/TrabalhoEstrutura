@@ -95,7 +95,7 @@ public class MangaRosaMemoryGame {
         int amarelo = qtdDosPares - vermelhoAzul - 1;
         int preto = 1;
 
-        String[] simbolos = {"♥", "★", "▲", "◆", "■"};
+        String[] simbolos = {"✜", "✮", "❣", "✿", "✘"};
         String[] cartas = new String[tamanho * tamanho];
         int indice = 0;
         Random rand = new Random();
